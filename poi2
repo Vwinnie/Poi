@@ -1,0 +1,84 @@
+class Aufgabe:
+    def __init__(self, id, titel, beschreibung):
+        self.id = id
+        self.titel = titel
+        self.beschreibung = beschreibung
+        self.abgeschlossen = False
+
+    def get_id(self):
+        return self.id
+
+    def get_titel(self):
+        return self.titel
+
+    def get_beschreibung(self):
+        return self.beschreibung
+
+    def ist_abgeschlossen(self):
+        return self.abgeschlossen
+
+    def als_abgeschlossen_markieren(self):
+        self.abgeschlossen = True
+
+    def als_unabgeschlossen_markieren(self):
+        self.abgeschlossen = False
+
+
+class AufgabenManager:
+    def __init__(self):
+        self.aufgaben = []
+        self.naechste_aufgaben_id = 1
+
+    def aufgabe_hinzufuegen(self, titel, beschreibung):
+        neue_aufgabe = Aufgabe(self.naechste_aufgaben_id, titel, beschreibung)
+        self.aufgaben.append(neue_aufgabe)
+        self.naechste_aufgaben_id += 1
+
+    def aufgabe_als_abgeschlossen_markieren(self, aufgaben_id):
+        for aufgabe in self.aufgaben:
+            if aufgabe.get_id() == aufgaben_id:
+                aufgabe.als_abgeschlossen_markieren()
+                return
+
+    def aufgabe_als_unabgeschlossen_markieren(self, aufgaben_id):
+        for aufgabe in self.aufgaben:
+            if aufgabe.get_id() == aufgaben_id:
+                aufgabe.als_unabgeschlossen_markieren()
+                return
+
+    def aufgaben_liste_anzeigen(self):
+        for aufgabe in self.aufgaben:
+            status = "Abgeschlossen" if aufgabe.ist_abgeschlossen() else "Unabgeschlossen"
+            print("ID:", aufgabe.get_id(), ", Titel:", aufgabe.get_titel(), ", Status:", status)
+
+
+if __name__ == "__main__":
+    aufgaben_manager = AufgabenManager()
+
+    while True:
+        print("Wählen Sie eine Aktion:")
+        print("1. Aufgabe hinzufügen")
+        print("2. Aufgabe als abgeschlossen markieren")
+        print("3. Aufgabe als unabgeschlossen markieren")
+        print("4. Aufgabenliste anzeigen")
+        print("5. Beenden")
+
+        auswahl = int(input())
+
+        if auswahl == 1:
+            titel = input("Geben Sie den Titel der Aufgabe ein: ")
+            beschreibung = input("Geben Sie die Beschreibung der Aufgabe ein: ")
+            aufgaben_manager.aufgabe_hinzufuegen(titel, beschreibung)
+        elif auswahl == 2:
+            aufgaben_id = int(input("Geben Sie die ID der Aufgabe zum Markieren als abgeschlossen ein: "))
+            aufgaben_manager.aufgabe_als_abgeschlossen_markieren(aufgaben_id)
+        elif auswahl == 3:
+            aufgaben_id = int(input("Geben Sie die ID der Aufgabe zum Markieren als unabgeschlossen ein: "))
+            aufgaben_manager.aufgabe_als_unabgeschlossen_markieren(aufgaben_id)
+        elif auswahl == 4:
+            aufgaben_manager.aufgaben_liste_anzeigen()
+        elif auswahl == 5:
+            print("Das Programm wird beendet.")
+            break
+        else:
+            print("Ungültiger Befehl.")
