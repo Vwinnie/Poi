@@ -10,6 +10,16 @@ class Aufgabe:
 
     def get_titel(self):
         return self.titel
+    def get_id(self):
+        return self.id
+
+    def get_titel(self):
+        return self.titel
+    def get_id(self):
+        return self.id
+
+    def get_titel(self):
+        return self.titel
 
     def get_beschreibung(self):
         return self.beschreibung
@@ -82,3 +92,34 @@ if __name__ == "__main__":
             break
         else:
             print("Ungültiger Befehl.")
+
+    def get_id(self):
+        return self.id
+
+    def get_titel(self):
+        return self.titel
+    def get_id(self):
+        return self.id
+
+    def get_titel(self):
+        return self.titel
+    def get_id(self):
+        return self.id
+
+    def get_titel(self):
+        return self.titel
+    def get_id(self):
+        return self.id
+
+    def get_titel(self):
+        return self.titel
+    def get_id(self):
+        return self.id
+
+    def get_titel(self):
+        return self.titel
+    def get_id(self):
+        return self.id
+
+    def get_titel(self):
+        return self.titel
