@@ -103,33 +103,6 @@ public class TaskManagerApp {
             int choice = scanner.nextInt();
             scanner.nextLine(); // Очистка буфера
 
-            switch (choice) {
-                case 1:
-                    System.out.print("Введите заголовок задачи: ");
-                    String title = scanner.nextLine();
-                    System.out.print("Введите описание задачи: ");
-                    String description = scanner.nextLine();
-                    taskManager.addTask(title, description);
-                    break;
-                case 2:
-                    System.out.print("Введите ID задачи для отметки как завершенной: ");
-                    int completedId = scanner.nextInt();
-                    taskManager.markTaskAsCompleted(completedId);
-                    break;
-                case 3:
-                    System.out.print("Введите ID задачи для отметки как не завершенной: ");
-                    int incompleteId = scanner.nextInt();
-                    taskManager.markTaskAsIncomplete(incompleteId);
-                    break;
-                case 4:
-                    taskManager.listTasks();
-                    break;
-                case 5:
-                    System.out.println("Программа завершена.");
-                    System.exit(0);
-                    break;
-                default:
-                    System.out.println("Недопустимая команда.");
             }
         }
     }
