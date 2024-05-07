@@ -15,13 +15,7 @@ class Task {
     }
 
     public String getDescription() {
-        return description;
-    }
-
-    public boolean isCompleted() {
-        return completed;
-    }
-
+        return
     public void markAsCompleted() {
         completed = true;
     }
