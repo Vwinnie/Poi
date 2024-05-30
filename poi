@@ -8,11 +8,6 @@ class Task {
     private String description;
     private boolean completed;
     }
-
-    public String getDescription() {
-        return
-    public void markAsCompleted() {
-        completed = true;
     }
 
     public void markAsIncomplete() {
